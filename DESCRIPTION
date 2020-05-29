@@ -1,4 +1,4 @@
-Package: reactivity
+Package: tidybiobespoke
 Type: Package
 Title: This package provides a way to generate introductory dplyr and ggplot2 presentations using user-supplied tidy datasets
 Version: 0.1.0
