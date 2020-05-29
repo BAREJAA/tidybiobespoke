@@ -14,7 +14,7 @@ library(here)
 library(rlang)
 knitr::opts_chunk$set(echo = FALSE, 
                       fig.align="center")
-source(here::here("code", "bespoke.R")) #loads custom objects
+source(here::here("inst/tutorials/lecture10_intro_to_select/code", "bespoke.R")) #loads custom objects
 ```
 
 ## `select()` specific columns from your dataset {.build}
