@@ -39,7 +39,7 @@ healthcare(YourFolder = "lecture10_intro_to_select",
            JoinName = "patient_hx",
            JoinAbout = "pseudo-patient histories",
            JoinVariable = "patient_id",
-           JoinedName = "heart_joined")
+           JoinedName = "heart_joined") # call this `make_metadata()`?
 
 bespoke <- function(df, YourFolder){
   documentNew(
