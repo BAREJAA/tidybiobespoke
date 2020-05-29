@@ -1,8 +1,9 @@
 ---
 title: "Introduction to Select"
 output: 
-  ioslides_presentation:
-    widescreen: true
+ learnr::tutorial:
+    progressive: true
+    allow_skip: true
 runtime: shiny_prerendered
 ---
 
