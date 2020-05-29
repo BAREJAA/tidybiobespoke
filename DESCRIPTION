@@ -1,0 +1,25 @@
+Package: reactivity
+Type: Package
+Title: This package provides a way to generate introductory dplyr and ggplot2 presentations using user-supplied tidy datasets
+Version: 0.1.0
+Authors@R: c(
+        person("Matthew",
+        "Hirschey",
+        role = c("aut", "ctb"),
+        email = "matthew.hirschey@duke.edu",
+        ),
+        person("Allie",
+        "Mills",
+        role = c("aut", "ctb"),
+        email = "allie.mills@duke.edu",
+        ),
+        person("Akshay",
+        "Bareja",
+        role = c("aut", "cre"),
+        email = "matthew.hirschey@duke.edu",
+        ))
+Maintainer: Akshay Bareja <akshaybareja@gmail.com>
+Description: Coming soon
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
