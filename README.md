@@ -1,4 +1,4 @@
-# reactivity
+# tidybiobespoke
 This package allows you to use your own tidy datasets to automatically generate an "Introduction to Tidyverse" presentation
 
 # Installation
