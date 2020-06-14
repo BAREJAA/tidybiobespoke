@@ -502,197 +502,197 @@ Returns all rows and all columns from both a and b
 
 Where there are no matching values, returns NA for the one missing  
 
-# R <br>Strings
-Any questions?
+<!-- # R <br>Strings -->
+<!-- Any questions? -->
 
-## Strings hold text
-A string is what we store text within. It can be either:  
-- A single word: `"awesome"`  
-- A sentence: `"this class is awesome"`  
-- A combination: `c("blue", "is my favorite", "color")`  
-  
-Any of these can be stored as object, which we call strings. 
+<!-- ## Strings hold text -->
+<!-- A string is what we store text within. It can be either:   -->
+<!-- - A single word: `"awesome"`   -->
+<!-- - A sentence: `"this class is awesome"`   -->
+<!-- - A combination: `c("blue", "is my favorite", "color")`   -->
 
-```{r string_exercise, exercise=TRUE}
-```
+<!-- Any of these can be stored as object, which we call strings.  -->
 
-## Dealing with strings {.build}
-Dealing with character strings is a bit different than dealing with numbers in R?   
-  
-* Sort?  
-* Select?  
-* Change?  
-  
-Fortunately, the `tidyverse` as a package called `stringr` for dealing with them. 
+<!-- ```{r string_exercise, exercise=TRUE} -->
+<!-- ``` -->
 
-## Stringr
-<center><iframe src = "https://stringr.tidyverse.org"></iframe></center>
+<!-- ## Dealing with strings {.build} -->
+<!-- Dealing with character strings is a bit different than dealing with numbers in R?    -->
 
-## Counting string {.build}
-```{r setup_count, include=FALSE}
-df_input2 %>% count(health_status, sort = TRUE) %>% slice(2) %>% select(1) %>% pull()
-#restart here
-```
+<!-- * Sort?   -->
+<!-- * Select?   -->
+<!-- * Change?   -->
 
-`str_count()` is a function we can use to count the number of rows that match a particular pattern.  
-  
-The output with either be 1 (match), or 0 (no match)  
+<!-- Fortunately, the `tidyverse` as a package called `stringr` for dealing with them.  -->
 
-<div class= "red2"> Example </div>  
-In this code:  
-- string we want to evaluate is ``r dataframe_joined_name`$`r df_joined_string3_name``  
-- pattern we want to count `"High Cholesterol"`  
+<!-- ## Stringr -->
+<!-- <center><iframe src = "https://stringr.tidyverse.org"></iframe></center> -->
 
-`str_count(heart_joined$health_status, "High Cholesterol")`
+<!-- ## Counting string {.build} -->
+<!-- ```{r setup_count, include=FALSE} -->
+<!-- df_input2 %>% count(health_status, sort = TRUE) %>% slice(2) %>% select(1) %>% pull() -->
+<!-- #restart here -->
+<!-- ``` -->
 
-## Counting
-`str_count(heart_joined$health_status, "High Cholesterol")`
+<!-- `str_count()` is a function we can use to count the number of rows that match a particular pattern.   -->
 
-```{r str_count example, echo= FALSE, warning = FALSE}
-str_count(heart_joined$health_status, "High Cholesterol")
-```
+<!-- The output with either be 1 (match), or 0 (no match)   -->
 
-## Summarizing our counts
-A bunch of 0 and 1 are not incredibly useful.
+<!-- <div class= "red2"> Example </div>   -->
+<!-- In this code:   -->
+<!-- - string we want to evaluate is ``r dataframe_joined_name`$`r df_joined_string3_name``   -->
+<!-- - pattern we want to count `"High Cholesterol"`   -->
 
-But since R is good at adding, we can simply wrap the previous expression in `sum()`  
+<!-- `str_count(heart_joined$health_status, "High Cholesterol")` -->
 
-Try it below:  
-```{r sum_string, exercise = TRUE}
-```
+<!-- ## Counting -->
+<!-- `str_count(heart_joined$health_status, "High Cholesterol")` -->
 
-## Matching subsets of strings {.build}
+<!-- ```{r str_count example, echo= FALSE, warning = FALSE} -->
+<!-- str_count(heart_joined$health_status, "High Cholesterol") -->
+<!-- ``` -->
 
-We previously matched the entire string "High Cholesterol"  
-But we can use the same function to detect patterns within longer strings.  
-  
-Let's look for how many patients take a statin of any kind using
-`str_count(heart_joined$medication_hx, "statin")` 
+<!-- ## Summarizing our counts -->
+<!-- A bunch of 0 and 1 are not incredibly useful. -->
 
-## What about subsets of strings?  
-`str_count(heart_joined$medication_hx, "statin")` 
+<!-- But since R is good at adding, we can simply wrap the previous expression in `sum()`   -->
 
-What does the ouput mean?  
-```{r str_count_exercise, exercise = TRUE}
-```
+<!-- Try it below:   -->
+<!-- ```{r sum_string, exercise = TRUE} -->
+<!-- ``` -->
 
-## A note about string patterns
+<!-- ## Matching subsets of strings {.build} -->
 
-When using a stringr function, you may get an output saying a string pattern doesn't exist. If you know for sure it does, <div class="blue"> double check capitalization </div>.  
-  
-**The string must match exactly, or it will not be found!**
+<!-- We previously matched the entire string "High Cholesterol"   -->
+<!-- But we can use the same function to detect patterns within longer strings.   -->
 
-## stringr Exercise
-How many people having an `"auntie" or "aunt"` in their health history?  
-  
-Go to code/  
-Open 09_stringr.Rmd  
-Complete the exercise. 
+<!-- Let's look for how many patients take a statin of any kind using -->
+<!-- `str_count(heart_joined$medication_hx, "statin")`  -->
 
-## Using Regular Expressions
-That solution worked in this case, but was not very elegant, and might not work for all cases (what if there was a 'great aunt' in the list?)  
+<!-- ## What about subsets of strings?   -->
+<!-- `str_count(heart_joined$medication_hx, "statin")`  -->
 
-Or here is a more specific case for this data set.  
-  
-How many patients have a father with a history of disease? But we don't want to include grandfathers in the results. 
-  
-We can use something called **Regular Expressions**, aka **Regex**, to solve this
+<!-- What does the ouput mean?   -->
+<!-- ```{r str_count_exercise, exercise = TRUE} -->
+<!-- ``` -->
 
-## Using Regular Expressions {.build}
-Think of regex as a separate language, with it's own code, syntax, and rules.  
-  
-Regex rules allow complex matching patterns for strings, to ensure matching *exactly* the content desired
-  
-It is far too complex to cover in its entirely here, but here is one specific example.  
-  
-**GOAL**: identify all of the patients that have a father with a history of disease, but excluding grandfathers in the results. 
-  
-## Regular Expression Example {.build}
-<div class="red2"> Example </div>  
-We want to start with recognizing `father`.  
+<!-- ## A note about string patterns -->
 
-But then we want to make sure that we capture both `Father` and `father`. To accept either case f in the first spot we add `(F|f)`, so now our regex looks like `(F|f)ather`  
-  
-Lastly, we want this pattern to appear at the beginning of the word, so we add the regex `^` symbol.  
+<!-- When using a stringr function, you may get an output saying a string pattern doesn't exist. If you know for sure it does, <div class="blue"> double check capitalization </div>.   -->
 
-Our completed regex looks like:  
-  
-`str_count(heart_joined$family_history, "^(F|f)ather")` 
+<!-- **The string must match exactly, or it will not be found!** -->
 
-```{r regex1, exercise=TRUE}
-```
-## Regex Exercise
-Go to code/  
-Open 09_stringr.Rmd  
-Complete the exercise to count mothers.    
+<!-- ## stringr Exercise -->
+<!-- How many people having an `"auntie" or "aunt"` in their health history?   -->
 
-## Regex resources
-- The stringr cheatsheet shown above is a great resource  
-- Here the tidyverse website with a link to its vignette  
-  
-<center><iframe src="https://stringr.tidyverse.org/articles/regular-expressions.html"></iframe></center>  
+<!-- Go to code/   -->
+<!-- Open 09_stringr.Rmd   -->
+<!-- Complete the exercise.  -->
 
-## Detecting strings {.build}
-In addition to counting, we can use another function `str_detect()` to logically evaluate a character string.  
-  
-Because this logically evaluates an expression, the output is either `TRUE or FALSE`  
-  
-Practially, `str_detect` is used to detect the presence or absence of a pattern in a string  
+<!-- ## Using Regular Expressions -->
+<!-- That solution worked in this case, but was not very elegant, and might not work for all cases (what if there was a 'great aunt' in the list?)   -->
 
-## Logic Evaluation 
-<div class= "red2"> Example </div>  
-Find the patients with diabetes using the following code  
-  
-`str_detect(heart_joined$health_status, "Diabetic")`  
-  
-```{r strdetect, exercise=TRUE}
-```
+<!-- Or here is a more specific case for this data set.   -->
 
-## Modifiying strings with `str_replace()` {.build}
-In the health_status column we have:  
--`"Diabetic"`  
--`"High Cholesterol"`  
--`"Normal blood sugar and cholesterol"`  
-  
-But let's say we want to simplify healthy individuals to `"Normal"`
+<!-- How many patients have a father with a history of disease? But we don't want to include grandfathers in the results.  -->
 
-`str_replace(heart_joined$health_status, "Normal blood sugar and cholesterol", "Normal")`
+<!-- We can use something called **Regular Expressions**, aka **Regex**, to solve this -->
 
-```{r str_replace, exercise=TRUE}
-```
+<!-- ## Using Regular Expressions {.build} -->
+<!-- Think of regex as a separate language, with it's own code, syntax, and rules.   -->
 
-## Modifiying strings with `str_replace()` {.build}
-We use this same code to  modify the `health_status` column by assigning it to the same variable     
-  
-`heart_joined$health_status <-`  
-       `str_replace(heart_joined$health_status, "Normal blood sugar and cholesterol", "normal")`
+<!-- Regex rules allow complex matching patterns for strings, to ensure matching *exactly* the content desired -->
 
-```{r str_replace in col, warning = FALSE, echo=FALSE}
-heart_joined$health_status <- 
-  str_replace(heart_joined$health_status, "Normal blood sugar and cholesterol", "normal")
-head(heart_joined$health_status, n = 10)
-```
+<!-- It is far too complex to cover in its entirely here, but here is one specific example.   -->
 
-## Using `stringr` with `dplyr` {.build}
-We can use `stringr` functions in tandem with `dplyr` functions.  
-  
-<div class= "red2"> Example </div>  
-We want to make a logical variable (`TRUE`/`FALSE`) that tells us if a patient has a normal health history using  
+<!-- **GOAL**: identify all of the patients that have a father with a history of disease, but excluding grandfathers in the results.  -->
 
-`heart_joined2 <- heart_joined %>% mutate(healthy = str_detect(health_status, "normal"))` 
+<!-- ## Regular Expression Example {.build} -->
+<!-- <div class="red2"> Example </div>   -->
+<!-- We want to start with recognizing `father`.   -->
 
-```{r stringr with dplyr, echo=FALSE, warning=FALSE}
-heart_joined2 <- mutate(heart_joined, healthy = str_detect(health_status, "normal"))
-head(heart_joined2$healthy, n = 10)
-```
+<!-- But then we want to make sure that we capture both `Father` and `father`. To accept either case f in the first spot we add `(F|f)`, so now our regex looks like `(F|f)ather`   -->
 
-## Regex Exercise
-Go to code/  
-Open 09_stringr.Rmd  
-Complete the exercise to count mothers.   
+<!-- Lastly, we want this pattern to appear at the beginning of the word, so we add the regex `^` symbol.   -->
 
-# R <br> Markdown
-Any questions?
+<!-- Our completed regex looks like:   -->
+
+<!-- `str_count(heart_joined$family_history, "^(F|f)ather")`  -->
+
+<!-- ```{r regex1, exercise=TRUE} -->
+<!-- ``` -->
+<!-- ## Regex Exercise -->
+<!-- Go to code/   -->
+<!-- Open 09_stringr.Rmd   -->
+<!-- Complete the exercise to count mothers.     -->
+
+<!-- ## Regex resources -->
+<!-- - The stringr cheatsheet shown above is a great resource   -->
+<!-- - Here the tidyverse website with a link to its vignette   -->
+
+<!-- <center><iframe src="https://stringr.tidyverse.org/articles/regular-expressions.html"></iframe></center>   -->
+
+<!-- ## Detecting strings {.build} -->
+<!-- In addition to counting, we can use another function `str_detect()` to logically evaluate a character string.   -->
+
+<!-- Because this logically evaluates an expression, the output is either `TRUE or FALSE`   -->
+
+<!-- Practially, `str_detect` is used to detect the presence or absence of a pattern in a string   -->
+
+<!-- ## Logic Evaluation  -->
+<!-- <div class= "red2"> Example </div>   -->
+<!-- Find the patients with diabetes using the following code   -->
+
+<!-- `str_detect(heart_joined$health_status, "Diabetic")`   -->
+
+<!-- ```{r strdetect, exercise=TRUE} -->
+<!-- ``` -->
+
+<!-- ## Modifiying strings with `str_replace()` {.build} -->
+<!-- In the health_status column we have:   -->
+<!-- -`"Diabetic"`   -->
+<!-- -`"High Cholesterol"`   -->
+<!-- -`"Normal blood sugar and cholesterol"`   -->
+
+<!-- But let's say we want to simplify healthy individuals to `"Normal"` -->
+
+<!-- `str_replace(heart_joined$health_status, "Normal blood sugar and cholesterol", "Normal")` -->
+
+<!-- ```{r str_replace, exercise=TRUE} -->
+<!-- ``` -->
+
+<!-- ## Modifiying strings with `str_replace()` {.build} -->
+<!-- We use this same code to  modify the `health_status` column by assigning it to the same variable      -->
+
+<!-- `heart_joined$health_status <-`   -->
+<!--        `str_replace(heart_joined$health_status, "Normal blood sugar and cholesterol", "normal")` -->
+
+<!-- ```{r str_replace in col, warning = FALSE, echo=FALSE} -->
+<!-- heart_joined$health_status <-  -->
+<!--   str_replace(heart_joined$health_status, "Normal blood sugar and cholesterol", "normal") -->
+<!-- head(heart_joined$health_status, n = 10) -->
+<!-- ``` -->
+
+<!-- ## Using `stringr` with `dplyr` {.build} -->
+<!-- We can use `stringr` functions in tandem with `dplyr` functions.   -->
+
+<!-- <div class= "red2"> Example </div>   -->
+<!-- We want to make a logical variable (`TRUE`/`FALSE`) that tells us if a patient has a normal health history using   -->
+
+<!-- `heart_joined2 <- heart_joined %>% mutate(healthy = str_detect(health_status, "normal"))`  -->
+
+<!-- ```{r stringr with dplyr, echo=FALSE, warning=FALSE} -->
+<!-- heart_joined2 <- mutate(heart_joined, healthy = str_detect(health_status, "normal")) -->
+<!-- head(heart_joined2$healthy, n = 10) -->
+<!-- ``` -->
+
+<!-- ## Regex Exercise -->
+<!-- Go to code/   -->
+<!-- Open 09_stringr.Rmd   -->
+<!-- Complete the exercise to count mothers.    -->
+
+<!-- # R <br> Markdown -->
+<!-- Any questions? -->
 
 ## Scientific Reproducibly and Provenance with
 ```{r rmarkdown_logo, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="", out.width='40%'}
