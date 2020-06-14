@@ -4,8 +4,8 @@ subtitle: "Introduction to Data Science using R"
 author: "Matthew Hirschey, Ph.D."
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
-  ioslides_presentation:
-    widescreen: true
+learnr::tutorial:
+    df_print: tibble
 runtime: shiny_prerendered
 ---
 
@@ -18,8 +18,8 @@ library(twitterwidget)
 library(rlang)
 knitr::opts_chunk$set(echo = FALSE, 
                       fig.align="center")
-source(here::here("metadata.R")) #loads dataset-specific variables
-source(here::here("bespoke.R")) #loads custom objects
+source(here::here("code", "metadata.R")) #loads dataset-specific variables
+source(here::here("code", "bespoke.R")) #loads custom objects
 ```
 
 ## Doctors make decisions based on symptoms 
