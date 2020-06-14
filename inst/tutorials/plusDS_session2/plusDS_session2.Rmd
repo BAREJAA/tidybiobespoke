@@ -20,8 +20,8 @@ library(patchwork)
 library(ggrepel)
 knitr::opts_chunk$set(echo = FALSE, 
                       fig.align="center")
-source(here::here("code", "metadata.R")) #loads dataset-specific variables
-source(here::here("code", "bespoke.R")) #loads custom objects
+source(here::here("inst/tutorials/plusDS_session2/code", "metadata.R")) #loads dataset-specific variables
+source(here::here("inst/tutorials/plusDS_session2/code", "bespoke.R")) #loads custom objects
 ```
 
 # Welcome back
@@ -35,29 +35,29 @@ knitr::include_graphics(url)
 ```
 <font size = "1">[https://ggplot2.tidyverse.org](https://ggplot2.tidyverse.org)</font>
 
-## A basic plot using `ggplot` in R
-We ended the last class with:
+<!-- ## A basic plot using `ggplot` in R -->
+<!-- We ended the last class with: -->
 
-```{r ggplot_basic, echo=TRUE, message=FALSE, warning=FALSE, eval=FALSE}
-ggplot(heart, aes(x = sex, y = chol)) +
-  geom_point(color = "darkblue", size = 3) +
-  labs(x = "sex", 
-       y = "Cholesterol", 
-       title = "Cholesterol values from the heart disease dataset", 
-       caption = "Data from Kaggle | Plot from @matthewhirschey") +
-  theme_minimal() +
-  NULL
-```
+<!-- ```{r ggplot_basic, echo=TRUE, message=FALSE, warning=FALSE, eval=FALSE} -->
+<!-- ggplot(heart, aes(x = sex, y = chol)) + -->
+<!--   geom_point(color = "darkblue", size = 3) + -->
+<!--   labs(x = "sex",  -->
+<!--        y = "Cholesterol",  -->
+<!--        title = "Cholesterol values from the heart disease dataset",  -->
+<!--        caption = "Data from Kaggle | Plot from @matthewhirschey") + -->
+<!--   theme_minimal() + -->
+<!--   NULL -->
+<!-- ``` -->
 
-## which built this...
-```{r ggplot_basic2, message=FALSE, warning=FALSE, echo=FALSE}
-#need to parameterize this; embed rmd here?; but still need to parameterize that doc.
-ggplot(heart, aes(x = sex, y = chol)) +
-  geom_point(color = "darkblue", size = 3) +
-  labs(x = "sex", y = "Cholesterol", title = "Cholesterol values from the heart disease dataset", caption = "Data from Kaggle | Plot from @matthewhirschey") +
-  theme_minimal() +
-  NULL
-```
+<!-- ## which built this... -->
+<!-- ```{r ggplot_basic2, message=FALSE, warning=FALSE, echo=FALSE} -->
+<!-- #need to parameterize this; embed rmd here?; but still need to parameterize that doc. -->
+<!-- ggplot(heart, aes(x = sex, y = chol)) + -->
+<!--   geom_point(color = "darkblue", size = 3) + -->
+<!--   labs(x = "sex", y = "Cholesterol", title = "Cholesterol values from the heart disease dataset", caption = "Data from Kaggle | Plot from @matthewhirschey") + -->
+<!--   theme_minimal() + -->
+<!--   NULL -->
+<!-- ``` -->
 
 # Basic ggplot2
 Any questions from last week?
