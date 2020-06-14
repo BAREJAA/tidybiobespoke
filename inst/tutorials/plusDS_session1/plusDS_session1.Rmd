@@ -1,8 +1,8 @@
 ---
 title: "Tidybiology +DS: Session 1 "
-subtitle: "Introduction to Data Science in Health Care using R"
+subtitle: "Introduction to Data Science using R"
 author: "Matthew Hirschey, Ph.D."
-date: "April 8-9, 2020"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
   ioslides_presentation:
     widescreen: true
@@ -18,8 +18,8 @@ library(twitterwidget)
 library(rlang)
 knitr::opts_chunk$set(echo = FALSE, 
                       fig.align="center")
-source(here::here("code", "healthcare.R")) #loads dataset-specific variables
-source(here::here("code", "bespoke.R")) #loads custom objects
+source(here::here("metadata.R")) #loads dataset-specific variables
+source(here::here("bespoke.R")) #loads custom objects
 ```
 
 ## Doctors make decisions based on symptoms 
@@ -496,9 +496,9 @@ morning_routine <- wakeup(self) %>%
 What does this code do? 
 
 ``r dataframe_name` %>%`  
-`select(`r colnames(df_input)[2]`, `r colnames(df_input)[3]`) %>%`  
-`group_by(`r colnames(df_input)[3]`) %>%`  
-`summarize(mean(`r colnames(df_input)[2]`))`  
+`select(`r colnames(df_character_select)`, `r colnames(df_numeric_select)`) %>%`  
+`group_by(`r colnames(df_character_select)`) %>%`  
+`summarize(mean(`r colnames(df_numeric_select)`))`  
   
 Try it out here!
 ```{r pipe_ex, exercise=TRUE}
@@ -765,7 +765,7 @@ The code chunk above takes all the elements of the column `r colnames(df_numeric
 For example, to calculate the mean `r colnames(df_numeric_select)`, run the following
 
 ``r dataframe_name` %>%`      
-  `summarise(mean(`r colnames(df_numeric_select)`))` 
+  `summarise(mean(`r colnames(df_numeric_select)`, na.rm = TRUE))` 
 ```{r summarize_exercise, exercise=TRUE}
 ```
 
@@ -781,11 +781,12 @@ For example, to calculate the mean `r colnames(df_numeric_select)`, run the foll
 ```
   
 *remember this pair!  
+
 ## Saving a new dataset as an object
-If you'd like to save the output of your wrangling as an object, you will need to use the `<-` operator
+If you'd like to save the output of your wrangling as an object, you will need to use the `<-` operator  
 ``r dataframe_name`_new <- `r dataframe_name` %>%`  
             `group_by(`r colnames(df_character_select)`) %>%`  
-            `summarise(mean(`r colnames(df_numeric_select)`))`  
+            `summarise(mean(`r colnames(df_numeric_select)`, na.rm = TRUE))`  
   
 *Assigning the object the same name (i.e. ``r dataframe_name``) will overwrite the object  
   
@@ -798,17 +799,19 @@ To save ``r dataframe_name`_new` as a new file (e.g. csv), run the following:
 `write_csv(`r dataframe_name`_new, "`r dataframe_name`_new.csv")`
   
   
-# R <br>Data Science Workflow
-Any questions?
-## Visualizing our dataset
+# R <br>Data Science Workflow  
+Any questions?  
+
+## Visualizing our dataset  
   
 Go to code/  
 Open 03_rmd_practice.Rmd  
 Complete the activity.
   
-# R <br>Help
-Any questions?
-## Resources
+# R <br>Help  
+Any questions?  
+
+## Resources  
 - Rstudio package 'cheatsheets'  
 - Package function help pages: `?mean`, or navigate to the Help tab and search there  
 - Run the following to access the Dplyr vignette: `browseVignettes("dplyr")`  

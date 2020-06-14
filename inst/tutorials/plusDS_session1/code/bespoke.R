@@ -1,7 +1,7 @@
 set.seed(42)
 library(tidyverse)
 #load dataset for for class
-source(here::here('inst/tutorials/z_plusDS/code','healthcare.R'))#loads dataset-specific variables
+source(here::here('inst/tutorials/plusDS_session1/code', 'metadata.R'))#loads dataset-specific variables
 #make dataframes
 df_input <- data # df MUST contain at least one character and one numeric variable
 df_numeric <- df_input %>% select_if(~is.numeric(.) & length(unique(.)) > 10) %>% select(-contains('id'))
@@ -28,7 +28,7 @@ df_char2_name <- df_characters[2]
 df_char2_vec <- df_input %>% select(matches(df_char2_name)) %>% pull() #not used
 df_id_name <- sample(colnames(df_id), 1)
 df_id_vec <- df_input %>% select(matches(df_id_name)) #not used
-df_joined_strings <- sample(colnames(df_joined_character), 3) #fix this (should be 2)
-df_joined_string1_name <- df_joined_strings[1] #family_history
-df_joined_string2_name <- df_joined_strings[2] #medication_hx
-df_joined_string3_name <- df_joined_strings[3] #health_status
+# df_joined_strings <- sample(colnames(df_joined_character), 3) #fix this (should be 2)
+# df_joined_string1_name <- df_joined_strings[1] #family_history
+# df_joined_string2_name <- df_joined_strings[2] #medication_hx
+# df_joined_string3_name <- df_joined_strings[3] #health_status
