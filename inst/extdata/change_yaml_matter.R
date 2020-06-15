@@ -31,3 +31,9 @@ change_yaml_matter <- function(input_file, ..., output_file) {
     return(invisible(output_lines))
   }
 }
+
+# Example use
+# From - https://stackoverflow.com/questions/62095329/how-to-edit-an-r-markdown-yaml-header-programmatically
+
+change_yaml_matter("~/StackOverflow/1883604/62095186.Rmd",
+                   output=list(ioslides_presentation=list(widescreen=TRUE)))
